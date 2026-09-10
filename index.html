@@ -1304,84 +1304,90 @@
         </div>
 
 
-        <div class="gallery-grid">
+        <div
+          class="gallery-filters"
+          role="tablist"
+          aria-label="Filter gallery by area"
+        >
+          <button type="button" class="gallery-filter-btn is-active" data-filter="all">All Photos</button>
+          <button type="button" class="gallery-filter-btn" data-filter="elevation">Elevation</button>
+          <button type="button" class="gallery-filter-btn" data-filter="reception">Reception</button>
+          <button type="button" class="gallery-filter-btn" data-filter="corridor">Corridor</button>
+          <button type="button" class="gallery-filter-btn" data-filter="deluxe">Deluxe Triple Room</button>
+          <button type="button" class="gallery-filter-btn" data-filter="executive-twin">Executive Twin Room</button>
+          <button type="button" class="gallery-filter-btn" data-filter="executive-double">Executive Double</button>
+        </div>
 
 
-          <figure class="gallery-item gallery-item-large">
+        <div class="gallery-grid" data-gallery-grid>
 
-            <img
-              src="assets/images/Elevation/elevation.png"
-              alt="Hotel Vishaka Paark exterior"
-              loading="lazy"
-            >
-
+          <!-- ELEVATION -->
+          <figure class="gallery-item" data-category="elevation">
+            <button type="button" class="gallery-item-trigger" aria-label="View larger photo: Hotel Vishaka Paark exterior elevation">
+              <img src="assets/images/Elevation/elevation.png" alt="Hotel Vishaka Paark exterior elevation" loading="lazy">
+            </button>
           </figure>
 
+          <!-- RECEPTION -->
+          <figure class="gallery-item" data-category="reception"><button type="button" class="gallery-item-trigger" aria-label="View larger photo: Reception"><img src="assets/images/Reception/0P3A3257.jpg" alt="Hotel Vishaka Paark reception" loading="lazy"></button></figure>
+          <figure class="gallery-item" data-category="reception"><button type="button" class="gallery-item-trigger" aria-label="View larger photo: Reception"><img src="assets/images/Reception/0P3A3481.jpg" alt="Hotel Vishaka Paark reception" loading="lazy"></button></figure>
+          <figure class="gallery-item" data-category="reception"><button type="button" class="gallery-item-trigger" aria-label="View larger photo: Reception"><img src="assets/images/Reception/0P3A3487.jpg" alt="Hotel Vishaka Paark reception" loading="lazy"></button></figure>
+          <figure class="gallery-item" data-category="reception"><button type="button" class="gallery-item-trigger" aria-label="View larger photo: Reception"><img src="assets/images/Reception/0P3A3490.jpg" alt="Hotel Vishaka Paark reception" loading="lazy"></button></figure>
+          <figure class="gallery-item" data-category="reception"><button type="button" class="gallery-item-trigger" aria-label="View larger photo: Reception"><img src="assets/images/Reception/0P3A3495.jpg" alt="Hotel Vishaka Paark reception" loading="lazy"></button></figure>
+          <figure class="gallery-item" data-category="reception"><button type="button" class="gallery-item-trigger" aria-label="View larger photo: Reception"><img src="assets/images/Reception/0P3A3501.jpg" alt="Hotel Vishaka Paark reception" loading="lazy"></button></figure>
+          <figure class="gallery-item" data-category="reception"><button type="button" class="gallery-item-trigger" aria-label="View larger photo: Reception"><img src="assets/images/Reception/0P3A3525.jpg" alt="Hotel Vishaka Paark reception" loading="lazy"></button></figure>
+          <figure class="gallery-item" data-category="reception"><button type="button" class="gallery-item-trigger" aria-label="View larger photo: Reception"><img src="assets/images/Reception/0P3A3529.jpg" alt="Hotel Vishaka Paark reception" loading="lazy"></button></figure>
+          <figure class="gallery-item" data-category="reception"><button type="button" class="gallery-item-trigger" aria-label="View larger photo: Reception team"><img src="assets/images/Reception/Reception-Team.jpg" alt="Hotel Vishaka Paark reception team" loading="lazy"></button></figure>
+          <figure class="gallery-item" data-category="reception"><button type="button" class="gallery-item-trigger" aria-label="View larger photo: Reception area"><img src="assets/images/Reception/Reception.jpg" alt="Hotel Vishaka Paark reception area" loading="lazy"></button></figure>
+          <figure class="gallery-item" data-category="reception"><button type="button" class="gallery-item-trigger" aria-label="View larger photo: Reception area"><img src="assets/images/Reception/Reception1.jpg" alt="Hotel Vishaka Paark reception area" loading="lazy"></button></figure>
 
-          <figure class="gallery-item">
+          <!-- CORRIDOR -->
+          <figure class="gallery-item" data-category="corridor"><button type="button" class="gallery-item-trigger" aria-label="View larger photo: Corridor"><img src="assets/images/Corridor/0P3A3285.jpg" alt="Hotel Vishaka Paark corridor" loading="lazy"></button></figure>
+          <figure class="gallery-item" data-category="corridor"><button type="button" class="gallery-item-trigger" aria-label="View larger photo: Corridor"><img src="assets/images/Corridor/0P3A3286.jpg" alt="Hotel Vishaka Paark corridor" loading="lazy"></button></figure>
+          <figure class="gallery-item" data-category="corridor"><button type="button" class="gallery-item-trigger" aria-label="View larger photo: Corridor"><img src="assets/images/Corridor/0P3A3357.jpg" alt="Hotel Vishaka Paark corridor" loading="lazy"></button></figure>
+          <figure class="gallery-item" data-category="corridor"><button type="button" class="gallery-item-trigger" aria-label="View larger photo: Corridor"><img src="assets/images/Corridor/0P3A3365.jpg" alt="Hotel Vishaka Paark corridor" loading="lazy"></button></figure>
+          <figure class="gallery-item" data-category="corridor"><button type="button" class="gallery-item-trigger" aria-label="View larger photo: Corridor"><img src="assets/images/Corridor/0P3A3367.jpg" alt="Hotel Vishaka Paark corridor" loading="lazy"></button></figure>
+          <figure class="gallery-item" data-category="corridor"><button type="button" class="gallery-item-trigger" aria-label="View larger photo: Corridor"><img src="assets/images/Corridor/0P3A3368.jpg" alt="Hotel Vishaka Paark corridor" loading="lazy"></button></figure>
+          <figure class="gallery-item" data-category="corridor"><button type="button" class="gallery-item-trigger" aria-label="View larger photo: Corridor"><img src="assets/images/Corridor/0P3A3369.jpg" alt="Hotel Vishaka Paark corridor" loading="lazy"></button></figure>
+          <figure class="gallery-item" data-category="corridor"><button type="button" class="gallery-item-trigger" aria-label="View larger photo: Corridor"><img src="assets/images/Corridor/0P3A3373.jpg" alt="Hotel Vishaka Paark corridor" loading="lazy"></button></figure>
+          <figure class="gallery-item" data-category="corridor"><button type="button" class="gallery-item-trigger" aria-label="View larger photo: Corridor"><img src="assets/images/Corridor/0P3A3375.jpg" alt="Hotel Vishaka Paark corridor" loading="lazy"></button></figure>
+          <figure class="gallery-item" data-category="corridor"><button type="button" class="gallery-item-trigger" aria-label="View larger photo: Corridor"><img src="assets/images/Corridor/0P3A3376.jpg" alt="Hotel Vishaka Paark corridor" loading="lazy"></button></figure>
+          <figure class="gallery-item" data-category="corridor"><button type="button" class="gallery-item-trigger" aria-label="View larger photo: Corridor"><img src="assets/images/Corridor/0P3A3416.jpg" alt="Hotel Vishaka Paark corridor" loading="lazy"></button></figure>
+          <figure class="gallery-item" data-category="corridor"><button type="button" class="gallery-item-trigger" aria-label="View larger photo: Corridor"><img src="assets/images/Corridor/0P3A3420.jpg" alt="Hotel Vishaka Paark corridor" loading="lazy"></button></figure>
+          <figure class="gallery-item" data-category="corridor"><button type="button" class="gallery-item-trigger" aria-label="View larger photo: Corridor"><img src="assets/images/Corridor/0P3A3424.jpg" alt="Hotel Vishaka Paark corridor" loading="lazy"></button></figure>
+          <figure class="gallery-item" data-category="corridor"><button type="button" class="gallery-item-trigger" aria-label="View larger photo: Corridor"><img src="assets/images/Corridor/0P3A3514.jpg" alt="Hotel Vishaka Paark corridor" loading="lazy"></button></figure>
+          <figure class="gallery-item" data-category="corridor"><button type="button" class="gallery-item-trigger" aria-label="View larger photo: Corridor"><img src="assets/images/Corridor/0P3A3518.jpg" alt="Hotel Vishaka Paark corridor" loading="lazy"></button></figure>
 
-            <img
-              src="assets/images/Reception/0P3A3487.png"
-              alt="Hotel Vishaka Paark reception"
-              loading="lazy"
-            >
+          <!-- DELUXE TRIPLE ROOM -->
+          <figure class="gallery-item" data-category="deluxe"><button type="button" class="gallery-item-trigger" aria-label="View larger photo: Deluxe Triple Room"><img src="assets/images/deluxe triple room/deluxe.jpg" alt="Deluxe Triple Room" loading="lazy"></button></figure>
+          <figure class="gallery-item" data-category="deluxe"><button type="button" class="gallery-item-trigger" aria-label="View larger photo: Deluxe Triple Room"><img src="assets/images/deluxe triple room/standard.jpg" alt="Deluxe Triple Room" loading="lazy"></button></figure>
+          <figure class="gallery-item" data-category="deluxe"><button type="button" class="gallery-item-trigger" aria-label="View larger photo: Deluxe Triple Room"><img src="assets/images/deluxe triple room/standard-1.jpg" alt="Deluxe Triple Room" loading="lazy"></button></figure>
+          <figure class="gallery-item" data-category="deluxe"><button type="button" class="gallery-item-trigger" aria-label="View larger photo: Deluxe Triple Room"><img src="assets/images/deluxe triple room/0P3A3276.jpg" alt="Deluxe Triple Room" loading="lazy"></button></figure>
+          <figure class="gallery-item" data-category="deluxe"><button type="button" class="gallery-item-trigger" aria-label="View larger photo: Deluxe Triple Room"><img src="assets/images/deluxe triple room/0P3A3300.jpg" alt="Deluxe Triple Room" loading="lazy"></button></figure>
+          <figure class="gallery-item" data-category="deluxe"><button type="button" class="gallery-item-trigger" aria-label="View larger photo: Deluxe Triple Room"><img src="assets/images/deluxe triple room/0P3A3311.jpg" alt="Deluxe Triple Room" loading="lazy"></button></figure>
+          <figure class="gallery-item" data-category="deluxe"><button type="button" class="gallery-item-trigger" aria-label="View larger photo: Deluxe Triple Room"><img src="assets/images/deluxe triple room/0P3A3312.jpg" alt="Deluxe Triple Room" loading="lazy"></button></figure>
+          <figure class="gallery-item" data-category="deluxe"><button type="button" class="gallery-item-trigger" aria-label="View larger photo: Deluxe Triple Room"><img src="assets/images/deluxe triple room/0P3A3319.jpg" alt="Deluxe Triple Room" loading="lazy"></button></figure>
+          <figure class="gallery-item" data-category="deluxe"><button type="button" class="gallery-item-trigger" aria-label="View larger photo: Deluxe Triple Room"><img src="assets/images/deluxe triple room/0P3A3327.jpg" alt="Deluxe Triple Room" loading="lazy"></button></figure>
+          <figure class="gallery-item" data-category="deluxe"><button type="button" class="gallery-item-trigger" aria-label="View larger photo: Deluxe Triple Room"><img src="assets/images/deluxe triple room/0P3A3332.jpg" alt="Deluxe Triple Room" loading="lazy"></button></figure>
+          <figure class="gallery-item" data-category="deluxe"><button type="button" class="gallery-item-trigger" aria-label="View larger photo: Deluxe Triple Room"><img src="assets/images/deluxe triple room/0P3A3334.jpg" alt="Deluxe Triple Room" loading="lazy"></button></figure>
+          <figure class="gallery-item" data-category="deluxe"><button type="button" class="gallery-item-trigger" aria-label="View larger photo: Deluxe Triple Room"><img src="assets/images/deluxe triple room/0P3A3336.jpg" alt="Deluxe Triple Room" loading="lazy"></button></figure>
+          <figure class="gallery-item" data-category="deluxe"><button type="button" class="gallery-item-trigger" aria-label="View larger photo: Deluxe Triple Room"><img src="assets/images/deluxe triple room/0P3A3348.jpg" alt="Deluxe Triple Room" loading="lazy"></button></figure>
+          <figure class="gallery-item" data-category="deluxe"><button type="button" class="gallery-item-trigger" aria-label="View larger photo: Deluxe Triple Room"><img src="assets/images/deluxe triple room/0P3A3352.jpg" alt="Deluxe Triple Room" loading="lazy"></button></figure>
 
-          </figure>
+          <!-- EXECUTIVE TWIN ROOM -->
+          <figure class="gallery-item" data-category="executive-twin"><button type="button" class="gallery-item-trigger" aria-label="View larger photo: Executive Twin Room"><img src="assets/images/executive twin-room/standard-1.jpg" alt="Executive Twin Room" loading="lazy"></button></figure>
+          <figure class="gallery-item" data-category="executive-twin"><button type="button" class="gallery-item-trigger" aria-label="View larger photo: Executive Twin Room"><img src="assets/images/executive twin-room/0P3A3387.jpg" alt="Executive Twin Room" loading="lazy"></button></figure>
+          <figure class="gallery-item" data-category="executive-twin"><button type="button" class="gallery-item-trigger" aria-label="View larger photo: Executive Twin Room"><img src="assets/images/executive twin-room/0P3A3394.jpg" alt="Executive Twin Room" loading="lazy"></button></figure>
+          <figure class="gallery-item" data-category="executive-twin"><button type="button" class="gallery-item-trigger" aria-label="View larger photo: Executive Twin Room"><img src="assets/images/executive twin-room/0P3A3396.jpg" alt="Executive Twin Room" loading="lazy"></button></figure>
 
-
-          <figure class="gallery-item">
-
-            <img
-              src="assets/images/executive-double/0P3A3429.jpg"
-              alt="Executive Double room"
-              loading="lazy"
-            >
-
-          </figure>
-
-
-          <figure class="gallery-item">
-
-            <img
-              src="assets/images/executive twin-room/0P3A3387.jpg"
-              alt="Executive Twin room"
-              loading="lazy"
-            >
-
-          </figure>
-
-
-          <figure class="gallery-item">
-
-            <img
-              src="assets/images/deluxe triple room/deluxe.jpg"
-              alt="Deluxe Triple Room"
-              loading="lazy"
-            >
-
-          </figure>
-
-
-          <figure class="gallery-item gallery-item-wide">
-
-            <img
-              src="assets/images/executive-double/0P3A3448 copy.jpg"
-              alt="Hotel Vishaka Paark room interior"
-              loading="lazy"
-            >
-
-          </figure>
-
-
-          <figure class="gallery-item">
-
-            <img
-              src="assets/images/Reception/Reception.jpg"
-              alt="Hotel Vishaka Paark reception area"
-              loading="lazy"
-            >
-
-          </figure>
+          <!-- EXECUTIVE DOUBLE -->
+          <figure class="gallery-item" data-category="executive-double"><button type="button" class="gallery-item-trigger" aria-label="View larger photo: Executive Double room"><img src="assets/images/executive-double/executive.jpg" alt="Executive Double room" loading="lazy"></button></figure>
+          <figure class="gallery-item" data-category="executive-double"><button type="button" class="gallery-item-trigger" aria-label="View larger photo: Executive Double room"><img src="assets/images/executive-double/0P3A3429.jpg" alt="Executive Double room" loading="lazy"></button></figure>
+          <figure class="gallery-item" data-category="executive-double"><button type="button" class="gallery-item-trigger" aria-label="View larger photo: Executive Double room"><img src="assets/images/executive-double/0P3A3431.jpg" alt="Executive Double room" loading="lazy"></button></figure>
+          <figure class="gallery-item" data-category="executive-double"><button type="button" class="gallery-item-trigger" aria-label="View larger photo: Executive Double room"><img src="assets/images/executive-double/0P3A3434.jpg" alt="Executive Double room" loading="lazy"></button></figure>
+          <figure class="gallery-item" data-category="executive-double"><button type="button" class="gallery-item-trigger" aria-label="View larger photo: Executive Double room"><img src="assets/images/executive-double/0P3A3437.jpg" alt="Executive Double room" loading="lazy"></button></figure>
+          <figure class="gallery-item" data-category="executive-double"><button type="button" class="gallery-item-trigger" aria-label="View larger photo: Executive Double room"><img src="assets/images/executive-double/0P3A3448 copy.jpg" alt="Executive Double room" loading="lazy"></button></figure>
+          <figure class="gallery-item" data-category="executive-double"><button type="button" class="gallery-item-trigger" aria-label="View larger photo: Executive Double room"><img src="assets/images/executive-double/0P3A3457.jpg" alt="Executive Double room" loading="lazy"></button></figure>
 
         </div>
 
@@ -1393,7 +1399,7 @@
             can be explored as the gallery grows.
           </p>
 
-          <a
+          
             class="text-link"
             href="#contact"
           >
@@ -2145,6 +2151,36 @@
         </div>
       </div>
     </section>
+  </div>
+
+    <!-- =====================================================
+       GALLERY LIGHTBOX
+       ===================================================== -->
+
+  <div class="lightbox-modal" aria-hidden="true">
+    <div class="lightbox-backdrop"></div>
+
+    <div
+      class="lightbox-panel"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Photo viewer"
+    >
+      <button class="lightbox-close" type="button" aria-label="Close photo viewer">×</button>
+
+      <button class="lightbox-nav lightbox-prev" type="button" aria-label="Previous photo">‹</button>
+
+      <div class="lightbox-image-wrap">
+        <img class="lightbox-image" src="" alt="">
+      </div>
+
+      <button class="lightbox-nav lightbox-next" type="button" aria-label="Next photo">›</button>
+
+      <div class="lightbox-caption">
+        <span class="lightbox-category"></span>
+        <span class="lightbox-count"></span>
+      </div>
+    </div>
   </div>
 
 

@@ -2954,6 +2954,152 @@
   }
 
   /* =========================================================
+     GALLERY: FILTER + LIGHTBOX
+     ========================================================= */
+
+  var galleryGrid = $("[data-gallery-grid]");
+
+  if (galleryGrid) {
+    var galleryFilterButtons = $$(".gallery-filter-btn");
+    var galleryItems = $$(".gallery-item", galleryGrid);
+
+    var lightboxModal = $(".lightbox-modal");
+    var lightboxImage = $(".lightbox-image", lightboxModal);
+    var lightboxCategory = $(".lightbox-category", lightboxModal);
+    var lightboxCount = $(".lightbox-count", lightboxModal);
+    var lightboxClose = $(".lightbox-close", lightboxModal);
+    var lightboxPrev = $(".lightbox-prev", lightboxModal);
+    var lightboxNext = $(".lightbox-next", lightboxModal);
+    var lightboxBackdrop = $(".lightbox-backdrop", lightboxModal);
+
+    var visibleItems = galleryItems.slice();
+    var currentIndex = 0;
+
+    function categoryLabel(category) {
+      var labels = {
+        elevation: "Elevation",
+        reception: "Reception",
+        corridor: "Corridor",
+        deluxe: "Deluxe Triple Room",
+        "executive-twin": "Executive Twin Room",
+        "executive-double": "Executive Double"
+      };
+
+      return labels[category] || "";
+    }
+
+    function applyFilter(filter) {
+      visibleItems = [];
+
+      galleryItems.forEach(function (item) {
+        var matches =
+          filter === "all" ||
+          item.getAttribute("data-category") === filter;
+
+        item.hidden = !matches;
+
+        if (matches) {
+          visibleItems.push(item);
+        }
+      });
+    }
+
+    galleryFilterButtons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        galleryFilterButtons.forEach(function (btn) {
+          btn.classList.remove("is-active");
+        });
+
+        button.classList.add("is-active");
+
+        applyFilter(button.getAttribute("data-filter"));
+      });
+    });
+
+    function openLightboxAt(index) {
+      if (!visibleItems.length) {
+        return;
+      }
+
+      currentIndex =
+        (index + visibleItems.length) % visibleItems.length;
+
+      var item = visibleItems[currentIndex];
+      var img = $("img", item);
+
+      lightboxImage.classList.remove("is-loaded");
+      lightboxImage.src = img.src;
+      lightboxImage.alt = img.alt;
+
+      lightboxImage.onload = function () {
+        lightboxImage.classList.add("is-loaded");
+      };
+
+      lightboxCategory.textContent = categoryLabel(
+        item.getAttribute("data-category")
+      );
+
+      lightboxCount.textContent =
+        (currentIndex + 1) + " / " + visibleItems.length;
+
+      lightboxModal.classList.add("is-open");
+      lightboxModal.setAttribute("aria-hidden", "false");
+    }
+
+    function closeLightbox() {
+      lightboxModal.classList.remove("is-open");
+      lightboxModal.setAttribute("aria-hidden", "true");
+    }
+
+    galleryItems.forEach(function (item, index) {
+      var trigger = $(".gallery-item-trigger", item);
+
+      if (!trigger) {
+        return;
+      }
+
+      trigger.addEventListener("click", function () {
+        var indexInVisible = visibleItems.indexOf(item);
+        openLightboxAt(indexInVisible === -1 ? 0 : indexInVisible);
+      });
+    });
+
+    if (lightboxClose) {
+      lightboxClose.addEventListener("click", closeLightbox);
+    }
+
+    if (lightboxBackdrop) {
+      lightboxBackdrop.addEventListener("click", closeLightbox);
+    }
+
+    if (lightboxPrev) {
+      lightboxPrev.addEventListener("click", function () {
+        openLightboxAt(currentIndex - 1);
+      });
+    }
+
+    if (lightboxNext) {
+      lightboxNext.addEventListener("click", function () {
+        openLightboxAt(currentIndex + 1);
+      });
+    }
+
+    document.addEventListener("keydown", function (event) {
+      if (!lightboxModal.classList.contains("is-open")) {
+        return;
+      }
+
+      if (event.key === "Escape") {
+        closeLightbox();
+      } else if (event.key === "ArrowLeft") {
+        openLightboxAt(currentIndex - 1);
+      } else if (event.key === "ArrowRight") {
+        openLightboxAt(currentIndex + 1);
+      }
+    });
+  }
+
+  /* =========================================================
      INITIALISE
      ========================================================= */
 
