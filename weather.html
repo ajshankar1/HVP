@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Coimbatore Weather | Hotel Vishaka Paark</title>
+  <meta name="description" content="Live Coimbatore weather and forecast information for guests of Hotel Vishaka Paark.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="footer-page">
+    <div class="container footer-page-inner">
+      <a class="footer-page-back" href="index.html">← Back to Hotel Vishaka Paark</a>
+      <span class="eyebrow">Coimbatore Weather</span>
+      <h1>Plan your day in Coimbatore.</h1>
+      <p class="footer-page-intro">Live weather information is provided for general travel planning. Conditions can change during the day, so please use the latest forecast when planning outdoor visits.</p>
+
+      <div class="footer-page-list">
+        <article>
+          <h2>Current conditions</h2>
+          <div class="weather-live-grid" id="live-weather">
+            <div class="weather-live-stat"><span>Temperature</span><strong data-weather-temp>Loading…</strong></div>
+            <div class="weather-live-stat"><span>Condition</span><strong data-weather-condition>Loading…</strong></div>
+            <div class="weather-live-stat"><span>Humidity</span><strong data-weather-humidity>Loading…</strong></div>
+            <div class="weather-live-stat"><span>Wind</span><strong data-weather-wind>Loading…</strong></div>
+          </div>
+          <p class="weather-source-note" data-weather-updated>Fetching current Coimbatore weather…</p>
+        </article>
+
+        <article>
+          <h2>7-day forecast</h2>
+          <div class="weather-forecast-grid" data-weather-forecast></div>
+        </article>
+
+        <article>
+          <h2>Travel note</h2>
+          <p>Coimbatore is influenced by its location near the Western Ghats and the Palakkad Gap. Weather can affect outdoor visits, especially for hill and open-air destinations such as Valparai and other local attractions.</p>
+        </article>
+      </div>
+
+      <div class="footer-page-disclaimer">Weather information is supplied by a third-party weather data service and is provided for general informational purposes. Hotel Vishaka Paark does not guarantee the accuracy, completeness or uninterrupted availability of live weather information. For travel decisions, please check the latest local conditions.</div>
+      <div class="footer-page-copyright">© <span data-current-year>2026</span> Hotel Vishaka Paark. All rights reserved.</div>
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      const labels = {0:'Clear sky',1:'Mainly clear',2:'Partly cloudy',3:'Overcast',45:'Foggy',48:'Rime fog',51:'Light drizzle',53:'Drizzle',55:'Heavy drizzle',61:'Light rain',63:'Rain',65:'Heavy rain',71:'Light snow',73:'Snow',75:'Heavy snow',80:'Rain showers',81:'Rain showers',82:'Heavy rain showers',95:'Thunderstorm',96:'Thunderstorm',99:'Thunderstorm'};
+      const url = 'https://api.open-meteo.com/v1/forecast?latitude=11.0168&longitude=76.9558&current=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=Asia%2FKolkata&forecast_days=7';
+      const temp = document.querySelector('[data-weather-temp]');
+      const condition = document.querySelector('[data-weather-condition]');
+      const humidity = document.querySelector('[data-weather-humidity]');
+      const wind = document.querySelector('[data-weather-wind]');
+      const updated = document.querySelector('[data-weather-updated]');
+      const forecast = document.querySelector('[data-weather-forecast]');
+
+      fetch(url).then(function(r){ if(!r.ok) throw new Error('Weather unavailable'); return r.json(); }).then(function(data){
+        const c=data.current||{}, d=data.daily||{};
+        temp.textContent = Math.round(c.temperature_2m) + '°C';
+        condition.textContent = labels[c.weather_code] || 'Current conditions';
+        humidity.textContent = c.relative_humidity_2m + '%';
+        wind.textContent = Math.round(c.wind_speed_10m) + ' km/h';
+        updated.textContent = 'Live Coimbatore conditions · Updated ' + new Date().toLocaleString('en-IN', {dateStyle:'medium', timeStyle:'short'});
+        forecast.innerHTML='';
+        (d.time||[]).forEach(function(day,i){
+          const card=document.createElement('div'); card.className='weather-forecast-card';
+          const date=new Date(day+'T12:00:00+05:30');
+          const dayName=date.toLocaleDateString('en-IN',{weekday:'short'});
+          card.innerHTML='<span>'+dayName+' · '+date.toLocaleDateString('en-IN',{day:'numeric',month:'short'})+'</span><strong>'+Math.round(d.temperature_2m_max[i])+'° / '+Math.round(d.temperature_2m_min[i])+'°</strong><small>'+(labels[d.weather_code[i]]||'Forecast')+' · '+(d.precipitation_probability_max[i] ?? '—')+'% rain chance</small>';
+          forecast.appendChild(card);
+        });
+      }).catch(function(){
+        temp.textContent='Unavailable'; condition.textContent='Please retry'; humidity.textContent='—'; wind.textContent='—'; updated.textContent='Live weather could not be loaded right now. Please refresh or contact the hotel for travel assistance.';
+        forecast.innerHTML='<p class="footer-page-note">Forecast temporarily unavailable.</p>';
+      });
+      document.querySelectorAll('[data-current-year]').forEach(function(el){el.textContent=new Date().getFullYear();});
+    })();
+  </script>
+</body>
+</html>
