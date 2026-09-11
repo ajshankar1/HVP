@@ -7012,7 +7012,12 @@ body {
   min-height: 285px;
   padding: 34px 34px 30px;
   border: 1px solid rgba(58, 36, 24, 0.14);
-  background: rgba(255, 253, 248, 0.78);
+  background: linear-gradient(
+  145deg,
+  #303338 0%,
+  #25282C 55%,
+  #1F2226 100%
+);
   box-shadow: 0 18px 50px rgba(36, 21, 14, 0.055);
   display: flex;
   flex-direction: column;
@@ -7024,7 +7029,7 @@ body {
   position: absolute;
   top: 16px;
   right: 26px;
-  color: var(--gold-soft);
+  color:  #D8BC88;
   font-family: var(--serif);
   font-size: 72px;
   font-weight: 500;
@@ -7032,7 +7037,7 @@ body {
 }
 
 .testimonial-placeholder-label {
-  color: var(--gold);
+  color: #D8BC88;;
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.15em;
@@ -7042,7 +7047,7 @@ body {
 .testimonial-card blockquote {
   max-width: 390px;
   margin: 36px 0 0;
-  color: var(--ink);
+  color: #F3F1EB;
   font-family: var(--serif);
   font-size: 29px;
   font-style: italic;
@@ -7052,7 +7057,7 @@ body {
 .testimonial-card footer {
   padding-top: 24px;
   border-top: 1px solid var(--line);
-  color: var(--muted);
+  color: #BDB8B0;
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -10471,6 +10476,28 @@ textarea {
   border-bottom: 1px solid rgba(243, 241, 235, 0.14) !important;
 }
 
+/* Delicate gold handoff between Rooms and Essential Comfort. */
+#rooms::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -1px;
+  left: 0;
+  z-index: 2;
+  width: min(calc(100% - 120px), 1380px);
+  height: 1px;
+  margin: 0 auto;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(216, 188, 136, 0.16) 20%,
+    rgba(216, 188, 136, 0.38) 50%,
+    rgba(216, 188, 136, 0.16) 80%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
 /* Light/paper sections need a dark separator for visibility. */
 #booking,
 #about,
@@ -10501,6 +10528,10 @@ textarea {
 
 /* Mobile: retain the same hairline treatment without adding weight. */
 @media (max-width: 767px) {
+  #rooms::after {
+    width: calc(100% - 40px);
+  }
+
   #home,
   #booking,
   #about,
@@ -11011,4 +11042,640 @@ textarea {
   object-position: center !important;
   display: block !important;
   margin: 0 auto !important;
+}/* =========================================================
+   SERVICES — 13 FACILITIES
+   Hotel Vishaka Paark
+   ========================================================= */
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.services-grid .service-item {
+  min-height: 255px;
+  padding: 34px 38px;
+}
+
+.services-grid .service-item:nth-child(odd) {
+  border-right: 1px solid var(--line);
+}
+
+.services-grid .service-item:nth-child(even) {
+  border-right: 0;
+}
+
+.services-grid .service-item h3 {
+  max-width: 290px;
+  line-height: 1.05;
+}
+
+.services-grid .service-item p {
+  max-width: 310px;
+  margin-top: 15px;
+  line-height: 1.75;
+}
+
+
+/* Keep the final single card visually balanced */
+.services-grid .service-item:last-child {
+  border-bottom: 0;
+}
+
+
+/* =========================================================
+   SERVICE ICON PLACEHOLDERS
+   Temporary visual normalization.
+   Professional unified icons will replace these next.
+   ========================================================= */
+
+.services-grid .service-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 54px;
+  height: 54px;
+
+  margin-bottom: 22px;
+
+  border: 1px solid rgba(183, 122, 24, 0.42);
+  border-radius: 50%;
+
+  background: rgba(183, 122, 24, 0.025);
+
+  color: var(--gold);
+  font-family: var(--serif);
+  font-size: 25px;
+  font-weight: 500;
+  line-height: 1;
+
+  transition:
+    background var(--transition),
+    border-color var(--transition),
+    color var(--transition),
+    transform var(--transition);
+}
+
+.services-grid .service-item:hover .service-icon {
+  background: rgba(183, 122, 24, 0.08);
+  border-color: var(--gold);
+  color: var(--gold-soft);
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .services-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .services-grid .service-item {
+    min-height: 245px;
+    padding: 30px 28px;
+  }
+
+  .services-grid .service-item h3 {
+    font-size: 28px;
+  }
+
+  .services-grid .service-item p {
+    max-width: 100%;
+    font-size: 14px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 640px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .services-grid .service-item {
+    min-height: auto;
+    padding: 30px 0;
+    border-right: 0 !important;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .services-grid .service-item:last-child {
+    border-bottom: 0;
+  }
+
+  .services-grid .service-icon {
+    width: 52px;
+    height: 52px;
+    margin-bottom: 18px;
+    font-size: 24px;
+  }
+
+  .services-grid .service-item h3 {
+    font-size: 27px;
+  }
+
+  .services-grid .service-item p {
+    margin-top: 12px;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+}/* =========================================================
+   HOTEL VISHAKA PAARK
+   SERVICES — FINAL CORRECT STRUCTURE
+   INTRO FIRST / FACILITIES BELOW
+   NO SLIDER
+   ========================================================= */
+
+#services .services-layout {
+  display: block !important;
+
+  width: 100% !important;
+  max-width: 100% !important;
+
+  margin: 0 !important;
+}
+
+
+/* ---------------------------------------------------------
+   INTRO MUST OCCUPY ITS OWN ROW
+   --------------------------------------------------------- */
+
+#services .services-intro {
+  position: static !important;
+
+  display: block !important;
+
+  width: 100% !important;
+  max-width: 760px !important;
+
+  margin: 0 0 55px 0 !important;
+
+  align-self: auto !important;
+}
+
+
+/* Heading */
+
+#services .services-intro h2 {
+  margin-top: 20px !important;
+
+  max-width: 700px !important;
+}
+
+
+/* Description */
+
+#services .services-intro > p {
+  display: block !important;
+
+  width: 100% !important;
+  max-width: 620px !important;
+
+  margin-top: 25px !important;
+
+  position: static !important;
+}
+
+
+/* ---------------------------------------------------------
+   FACILITIES — FULL WIDTH
+   --------------------------------------------------------- */
+
+#services .services-grid {
+  display: grid !important;
+
+  grid-template-columns:
+    repeat(5, minmax(0, 1fr)) !important;
+
+  grid-template-rows:
+    repeat(3, auto) !important;
+
+  width: 100% !important;
+  max-width: 100% !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  gap: 0 !important;
+
+  overflow: visible !important;
+
+  position: static !important;
+
+  flex: none !important;
+}
+
+
+/* ---------------------------------------------------------
+   FACILITY CARDS
+   --------------------------------------------------------- */
+
+#services .service-item {
+  position: relative !important;
+
+  display: block !important;
+
+  width: auto !important;
+  min-width: 0 !important;
+
+  height: 270px !important;
+  min-height: 270px !important;
+
+  margin: 0 !important;
+
+  padding: 32px 30px !important;
+
+  box-sizing: border-box !important;
+
+  overflow: hidden !important;
+
+  border-top:
+    1px solid var(--line) !important;
+
+  border-right:
+    1px solid var(--line) !important;
+
+  border-bottom: 0 !important;
+
+  border-left: 0 !important;
+
+  background: transparent !important;
+}
+
+
+/* First column of every row */
+
+#services .service-item:nth-child(5n + 1) {
+  border-left:
+    1px solid var(--line) !important;
+}
+
+
+/* Final row bottom border */
+
+#services .service-item:nth-child(n + 11) {
+  border-bottom:
+    1px solid var(--line) !important;
+}
+
+
+/* ---------------------------------------------------------
+   ICON
+   --------------------------------------------------------- */
+
+#services .service-icon {
+  display: inline-flex !important;
+
+  align-items: center !important;
+  justify-content: center !important;
+
+  width: 56px !important;
+  height: 56px !important;
+
+  min-width: 56px !important;
+  min-height: 56px !important;
+
+  max-width: 56px !important;
+  max-height: 56px !important;
+
+  margin: 0 0 21px 0 !important;
+  padding: 0 !important;
+
+  border: 1px solid
+    rgba(183, 122, 24, 0.42) !important;
+
+  border-radius: 50% !important;
+
+  background: transparent !important;
+
+  color: var(--gold) !important;
+
+  font-family: var(--serif) !important;
+
+  font-size: 23px !important;
+
+  line-height: 1 !important;
+
+  position: static !important;
+
+  transform: none !important;
+}
+
+
+/* ---------------------------------------------------------
+   TITLE
+   --------------------------------------------------------- */
+
+#services .service-item h3 {
+  display: block !important;
+
+  max-width: 235px !important;
+
+  margin: 0 !important;
+
+  color: var(--ivory) !important;
+
+  font-family: var(--serif) !important;
+
+  font-size: 26px !important;
+
+  font-weight: 500 !important;
+
+  line-height: 1.08 !important;
+}
+
+
+/* ---------------------------------------------------------
+   DESCRIPTION
+   --------------------------------------------------------- */
+
+#services .service-item p {
+  display: block !important;
+
+  max-width: 235px !important;
+
+  margin-top: 13px !important;
+
+  color:
+    rgba(255, 255, 255, 0.62) !important;
+
+  font-family: var(--serif) !important;
+
+  font-size: 13px !important;
+
+  line-height: 1.65 !important;
+
+  position: static !important;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+  #services .services-grid {
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr)) !important;
+  }
+
+
+  #services .service-item {
+    height: 270px !important;
+
+    min-height: 270px !important;
+
+    padding: 30px 26px !important;
+  }
+
+
+  #services .service-item:nth-child(5n + 1) {
+    border-left: 0 !important;
+  }
+
+
+  #services .service-item:nth-child(3n + 1) {
+    border-left:
+      1px solid var(--line) !important;
+  }
+
+
+  #services .service-item:nth-child(n + 11) {
+    border-bottom: 0 !important;
+  }
+
+
+  #services .service-item:nth-child(n + 10) {
+    border-bottom:
+      1px solid var(--line) !important;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+  #services .services-intro {
+    max-width: 100% !important;
+
+    margin-bottom: 40px !important;
+  }
+
+
+  #services .services-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr)) !important;
+  }
+
+
+  #services .service-item {
+    height: auto !important;
+
+    min-height: 245px !important;
+
+    padding: 26px 20px !important;
+  }
+
+
+  #services .service-item:nth-child(3n + 1) {
+    border-left: 0 !important;
+  }
+
+
+  #services .service-item:nth-child(2n + 1) {
+    border-left:
+      1px solid var(--line) !important;
+  }
+
+
+  #services .service-item:nth-child(n + 10) {
+    border-bottom: 0 !important;
+  }
+
+
+  #services .service-item:nth-child(n + 12) {
+    border-bottom:
+      1px solid var(--line) !important;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  #services .services-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+
+  #services .service-item {
+    height: auto !important;
+
+    min-height: 0 !important;
+
+    padding: 28px 22px !important;
+
+    border-left:
+      1px solid var(--line) !important;
+
+    border-right:
+      1px solid var(--line) !important;
+
+    border-bottom:
+      1px solid var(--line) !important;
+  }
+/* =========================================================
+   HOTEL VISHAKA PAARK
+   SERVICE ICONS — PREMIUM PNG TREATMENT
+   ========================================================= */
+
+#services .services-grid .service-icon {
+  width: 76px !important;
+  height: 76px !important;
+
+  min-width: 76px !important;
+  min-height: 76px !important;
+
+  max-width: 76px !important;
+  max-height: 76px !important;
+
+  display: flex !important;
+
+  align-items: center !important;
+  justify-content: center !important;
+
+  margin: 0 0 22px 0 !important;
+
+  padding: 0 !important;
+
+  border: 0 !important;
+
+  border-radius: 50% !important;
+
+  background: transparent !important;
+
+  overflow: visible !important;
+
+  line-height: 0 !important;
+}
+
+
+/* Actual PNG */
+
+#services .services-grid .service-icon img {
+  display: block !important;
+
+  width: 76px !important;
+  height: 76px !important;
+
+  min-width: 76px !important;
+  min-height: 76px !important;
+
+  max-width: 76px !important;
+  max-height: 76px !important;
+
+  object-fit: contain !important;
+
+  object-position: center !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  border: 0 !important;
+
+  background: transparent !important;
+}
+
+
+/* ---------------------------------------------------------
+   SUBTLE HOVER
+   --------------------------------------------------------- */
+
+#services .service-item:hover .service-icon img {
+  transform: scale(1.04);
+
+  transition:
+    transform 0.35s ease,
+    filter 0.35s ease;
+}
+
+
+/* ---------------------------------------------------------
+   MOBILE
+   --------------------------------------------------------- */
+
+@media (max-width: 700px) {
+
+  #services .services-grid .service-icon {
+    width: 68px !important;
+    height: 68px !important;
+
+    min-width: 68px !important;
+    min-height: 68px !important;
+
+    max-width: 68px !important;
+    max-height: 68px !important;
+  }
+
+
+  #services .services-grid .service-icon img {
+    width: 68px !important;
+    height: 68px !important;
+
+    min-width: 68px !important;
+    min-height: 68px !important;
+
+    max-width: 68px !important;
+    max-height: 68px !important;
+  }
+
+}
+}
+
+/* Quiet visual handoff from About to the following section. */
+#about {
+  position: relative;
+}
+
+#about::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  width: min(calc(100% - 120px), 1380px);
+  height: 1px;
+  margin: 0 auto;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(216, 188, 136, 0.16) 20%,
+    rgba(216, 188, 136, 0.38) 50%,
+    rgba(216, 188, 136, 0.16) 80%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+@media (max-width: 767px) {
+  #about::after {
+    width: calc(100% - 40px);
+  }
 }
