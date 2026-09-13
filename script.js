@@ -469,6 +469,11 @@
         mm +
         "-" +
         dd;
+
+      /* Check-out can never be selected before today, even before check-in changes. */
+      if (checkOutInput) {
+        checkOutInput.min = checkInInput.value || checkInInput.min;
+      }
     }
 
     if (
@@ -497,6 +502,19 @@
           }
         }
       );
+
+      checkOutInput.addEventListener(
+        "change",
+        function () {
+          /* A manually typed or stale check-out date is cleared immediately. */
+          if (
+            checkOutInput.value &&
+            checkOutInput.value < checkOutInput.min
+          ) {
+            checkOutInput.value = "";
+          }
+        }
+      );
     }
 
     bookingForm.addEventListener(
@@ -504,9 +522,32 @@
       function (event) {
         event.preventDefault();
 
-        openWhatsApp(
-          buildBookingMessage()
+        if (!bookingForm.reportValidity()) {
+          return;
+        }
+
+        /* Protect against manually entered dates as well as date-picker selections. */
+        if (
+          (checkInInput && checkInInput.value < checkInInput.min) ||
+          (checkOutInput && checkOutInput.value < checkOutInput.min) ||
+          (checkInInput && checkOutInput && checkOutInput.value < checkInInput.value)
+        ) {
+          return;
+        }
+
+        var bookingEngineUrl = new URL(
+          "https://secure.cheerzeconnect.com/Bookings/engine.html"
         );
+
+        bookingEngineUrl.searchParams.set(
+          "hotelId",
+          "41zCeLBoB8+H6~z6Ej+sDiqeTlZraDAn6WHZSg2lO8k-"
+        );
+        bookingEngineUrl.searchParams.set("checkin", checkInInput.value);
+        bookingEngineUrl.searchParams.set("checkout", checkOutInput.value);
+        bookingEngineUrl.searchParams.set("apb_formatdate", "yyyy-mm-dd");
+
+        window.location.assign(bookingEngineUrl.toString());
       }
     );
   }
