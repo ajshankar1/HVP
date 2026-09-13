@@ -423,12 +423,16 @@ body.page-loaded .page-loader {
 .header-phone {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-
-  font-size: 18px;
+  gap: 8px;
+font-family: "Cormorant Garamond", serif;
+  font-size: 14px;
   font-weight: 600;
-
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
   white-space: nowrap;
+
 }
 
 .phone-icon {
@@ -964,6 +968,22 @@ body.page-loaded .page-loader {
   color: var(--gold);
 }
 
+/* Keep native select menus legible against the charcoal booking bar. */
+.booking-field select {
+  color: #f3f1eb;
+  background-color: #303338;
+}
+
+.booking-field select option {
+  color: #f3f1eb;
+  background: #303338;
+}
+
+.booking-field select option:checked {
+  color: #1e2023;
+  background: #d8bc88;
+}
+
 .quick-booking-form > .button {
   height: 100%;
   border-radius: 0;
@@ -1302,6 +1322,20 @@ body.page-loaded .page-loader {
 
 .rooms-footnote p {
   font-size: 11px;
+}
+
+/* Give the rate note the same considered Cinzel treatment as the travel labels. */
+#rooms .rooms-footnote p {
+  color: #d8d2c8 !important;
+  font-family: "Cinzel", Georgia, serif !important;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.005em;
+  line-height: 1.55 !important;
+}
+
+#rooms .rooms-footnote .footnote-mark {
+  font-size: 16px !important;
 }
 
 
@@ -1887,6 +1921,25 @@ body.page-loaded .page-loader {
   border-color: var(--gold);
   background: var(--gold);
   color: var(--white);
+}
+
+/* Gallery sits on charcoal, so its unselected filters need a light resting state. */
+#gallery .gallery-filter-btn {
+  color: #e6e0d6;
+  border-color: rgba(230, 224, 214, 0.18);
+}
+
+#gallery .gallery-filter-btn:hover,
+#gallery .gallery-filter-btn:focus-visible {
+  color: #f7f4ee;
+  border-color: rgba(216, 188, 136, 0.72);
+  outline: none;
+}
+
+#gallery .gallery-filter-btn.is-active {
+  color: #1e2023;
+  border-color: #d8bc88;
+  background: #d8bc88;
 }
 
 .gallery-grid {
@@ -6417,6 +6470,65 @@ select:focus-visible {
   z-index: 0;
 }
 
+/* Coimbatore artwork lives at the hero edges, leaving the copy and hotel image clear. */
+.hero-side-art {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hero-side-art img {
+  position: absolute;
+  display: block;
+  max-width: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.hero-side-art-textile {
+  top: 82px;
+  left: 0;
+  width: clamp(230px, 22vw, 390px);
+  height: calc(100% - 82px);
+  object-fit: cover;
+  object-position: left center;
+  opacity: 0.35;
+  mix-blend-mode: screen;
+  -webkit-mask-image: linear-gradient(90deg, rgba(0, 0, 0, 0.94), transparent 100%);
+  mask-image: linear-gradient(90deg, rgba(0, 0, 0, 0.94), transparent 100%);
+}
+
+.hero-side-art-city {
+  right: -7vw;
+  bottom: -8%;
+  width: clamp(480px, 47vw, 820px);
+  height: auto;
+  opacity: 0.16;
+  mix-blend-mode: screen;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 45%, rgba(0, 0, 0, 0.65) 100%), linear-gradient(0deg, rgba(0, 0, 0, 0.9), transparent 95%);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(90deg, transparent 0%, #000 45%, rgba(0, 0, 0, 0.65) 100%), linear-gradient(0deg, rgba(0, 0, 0, 0.9), transparent 95%);
+  mask-composite: intersect;
+}
+
+@media (max-width: 767px) {
+  .hero-side-art-textile {
+    top: 70px;
+    width: 210px;
+    height: calc(100% - 70px);
+    opacity: 0.20;
+  }
+
+  .hero-side-art-city {
+    right: -52vw;
+    bottom: 0;
+    width: 620px;
+    opacity: 0.11;
+  }
+}
+
 .hero-sketch-layer {
   position: absolute;
   inset: 0;
@@ -6868,6 +6980,32 @@ select:focus-visible {
 
 .room-content .text-link {
   margin-top: 0 !important;
+}
+
+/* Clear charcoal action treatment for room-card details. */
+#rooms .room-content .text-link {
+  display: inline-flex !important;
+  min-height: 42px;
+  padding: 0 15px;
+  border: 1px solid rgba(243, 241, 235, 0.22);
+  background: #3b3e43;
+  color: #f3f1eb !important;
+  font-family: "Cinzel", Georgia, serif !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.025em;
+}
+
+#rooms .room-content .text-link span {
+  color: #d8bc88;
+  font-size: 20px;
+  line-height: 1;
+}
+
+#rooms .room-content .text-link:hover {
+  border-color: #d8bc88;
+  background: #474b51;
+  color: #fffdf8 !important;
 }
 
 @media (max-width: 1100px) {
@@ -8466,7 +8604,6 @@ textarea {
 .location-travel-note {
   display: flex !important;
   align-items: center !important;
-  gap: 12px !important;
   border-left: 1px solid rgba(58, 36, 24, 0.14) !important;
 }
 
@@ -8491,15 +8628,35 @@ textarea {
 }
 
 .location-travel-fact strong {
-  font-size: 16px !important;
+  color: #34363a !important;
+  font-size: 19px !important;
+  font-weight: 600 !important;
   line-height: 1.05 !important;
 }
 
 .location-travel-fact div span {
   margin-top: 3px !important;
   color: var(--muted) !important;
-  font-size: 12px !important;
+  font-size: 13px !important;
   line-height: 1.1 !important;
+}
+
+/* Travel labels: a stronger, architectural Cinzel treatment on the light palette. */
+#location .location-travel-fact strong {
+  color: #303338 !important;
+  font-family: "Cinzel", Georgia, serif !important;
+  font-size: 22px !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.025em;
+  line-height: 1.2 !important;
+}
+
+#location .location-travel-fact div span {
+  color: #62656a !important;
+  font-family: "Cinzel", Georgia, serif !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.01em;
 }
 
 .location-travel-note {
@@ -9227,7 +9384,7 @@ body {
 
 .main-nav a:hover,
 .header-phone:hover {
-  color: #d8bc88;
+  color: #d8b06a;
   opacity: 1;
 }
 
@@ -11555,6 +11712,12 @@ textarea {
     1px solid var(--line) !important;
 }
 
+/* The incomplete final grid row needs its exposed card edges closed as well. */
+#services .service-item:nth-child(9),
+#services .service-item:nth-child(10) {
+  border-bottom: 1px solid var(--line) !important;
+}
+
 
 /* ---------------------------------------------------------
    ICON
@@ -11636,11 +11799,13 @@ textarea {
   color:
     rgba(255, 255, 255, 0.62) !important;
 
-  font-family: var(--serif) !important;
+  font-family: "Cinzel", Georgia, serif !important;
 
-  font-size: 13px !important;
+  font-size: 15px !important;
 
-  line-height: 1.65 !important;
+  font-weight: 500 !important;
+
+  line-height: 1.68 !important;
 
   position: static !important;
 }
