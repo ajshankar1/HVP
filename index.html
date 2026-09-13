@@ -8,23 +8,122 @@
     content="width=device-width, initial-scale=1.0"
   >
 
-  <meta
-    name="description"
-    content="Hotel Vishaka Paark, Coimbatore — a comfortable stay with thoughtfully designed rooms, essential amenities and warm hospitality."
-  >
+<meta
+  name="description"
+  content="Hotel Vishaka Paark in Saravanampatty, Coimbatore, offers 24 comfortable rooms, breakfast included, Wi-Fi, room service, 24×7 front desk and warm hospitality."
+>
 
-  <meta
-    name="theme-color"
-    content="#3a2418"
-  >
+<title>Hotel Vishaka Paark | Hotel in Saravanampatty, Coimbatore</title>
 
-  <title>Hotel Vishaka Paark | A Comfortable Stay in Coimbatore</title>
+<!-- Canonical URL -->
+<link
+  rel="canonical"
+  href="https://www.hotelvishakapaark.com/"
+>
 
-  <link
-    rel="icon"
-    type="image/png"
-    href="assets/icons/favicon.png"
-  >
+<!-- Robots -->
+<meta
+  name="robots"
+  content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+>
+
+<!-- Open Graph -->
+<meta
+  property="og:type"
+  content="website"
+>
+
+<meta
+  property="og:url"
+  content="https://www.hotelvishakapaark.com/"
+>
+
+<meta
+  property="og:title"
+  content="Hotel Vishaka Paark | Hotel in Saravanampatty, Coimbatore"
+>
+
+<meta
+  property="og:description"
+  content="Stay at Hotel Vishaka Paark in Saravanampatty, Coimbatore, with 24 rooms, breakfast included, Wi-Fi, room service and 24×7 front desk."
+>
+
+<meta
+  property="og:site_name"
+  content="Hotel Vishaka Paark"
+>
+
+<meta
+  property="og:locale"
+  content="en_IN"
+>
+
+<meta
+  property="og:image"
+  content="https://www.hotelvishakapaark.com/assets/images/Elevation/elevation.png"
+>
+
+<meta
+  property="og:image:alt"
+  content="Hotel Vishaka Paark exterior in Coimbatore"
+>
+
+<!-- Hotel Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Hotel",
+  "@id": "https://www.hotelvishakapaark.com/#hotel",
+  "name": "Hotel Vishaka Paark",
+  "description": "Hotel Vishaka Paark is a hotel in Saravanampatty, Coimbatore, offering 24 rooms, breakfast, Wi-Fi, room service and a 24×7 front desk.",
+  "url": "https://www.hotelvishakapaark.com/",
+  "telephone": "+91 422 4695952",
+  "email": "hotelvishakapaark@gmail.com",
+  "image": "https://www.hotelvishakapaark.com/assets/images/Elevation/elevation.png",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Thudiyalur Road, Saravanampatty",
+    "addressLocality": "Coimbatore",
+    "addressRegion": "Tamil Nadu",
+    "postalCode": "641035",
+    "addressCountry": "IN"
+  },
+  "numberOfRooms": 24,
+  "amenityFeature": [
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Free Wi-Fi",
+      "value": true
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Breakfast",
+      "value": true
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Room Service",
+      "value": true
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "24×7 Front Desk",
+      "value": true
+    }
+  ]
+}
+</script>
+
+<meta
+  name="theme-color"
+  content="#3a2418"
+>
+
+<link
+  rel="icon"
+  type="image/png"
+  href="assets/icons/favicon.png"
+>
 
   <!-- Google Fonts -->
   <link
@@ -39,7 +138,7 @@
   >
 
   <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:wght@400;500;600;700&display=swap"
     rel="stylesheet"
   >
 
@@ -110,12 +209,13 @@
       <div class="header-actions">
 
         <a
-          class="header-phone"
-          href="tel:+919090927979"
-        >
-          <span class="phone-icon">◉</span>
-          +91 90909 27979
-        </a>
+  class="header-phone"
+  href="tel:+919090927979"
+  aria-label="Call Hotel Vishaka Paark"
+>
+  <span class="phone-icon" aria-hidden="true"></span>
+  +919090927979
+</a>
 
         <a
           class="header-cta"
@@ -164,6 +264,11 @@
         class="hero-paper-texture"
         aria-hidden="true"
       ></div>
+
+      <div class="hero-side-art" aria-hidden="true">
+        <img class="hero-side-art-textile" src="assets/images/hero/coimbatore-textile-art.png" alt="">
+        <img class="hero-side-art-city" src="assets/images/hero/coimbatore-city-art.png" alt="">
+      </div>
 <div class="container hero-container">
 
 
@@ -397,7 +502,7 @@
           </div>
 
 
-          <form class="quick-booking-form">
+          <form class="quick-booking-form" id="booking-form">
 
             <div class="booking-field">
 
@@ -409,6 +514,7 @@
                 id="checkin"
                 name="checkin"
                 type="date"
+                required
               >
 
             </div>
@@ -424,6 +530,7 @@
                 id="checkout"
                 name="checkout"
                 type="date"
+                required
               >
 
             </div>
@@ -994,7 +1101,7 @@
 
         <article class="service-item">
 
-          <<span class="service-icon">
+          <span class="service-icon">
   <img
     src="assets/images/services/wifi.png"
     alt=""
@@ -1042,7 +1149,7 @@
 
         <article class="service-item">
 
-          <<span class="service-icon">
+          <span class="service-icon">
   <img
     src="assets/images/services/laundry.png"
     alt=""
@@ -1258,7 +1365,7 @@
 
         <article class="service-item">
 
-          <<span class="service-icon">
+          <span class="service-icon">
   <img
     src="assets/images/services/king-size-bed.png"
     alt=""
@@ -1571,8 +1678,7 @@
           </p>
 
           <a class="button button-primary"
-            class="text-link"
-            href="#contact"
+  href="#contact"
           >
             Plan a Stay
             <span>→</span>
@@ -1708,7 +1814,6 @@
           </div>
 
           <div class="location-travel-fact">
-            <span class="location-travel-icon">✈</span>
             <div>
               <strong>Airport</strong>
               <span>Approx. 9.2 km</span>
@@ -1716,7 +1821,6 @@
           </div>
 
           <div class="location-travel-fact">
-            <span class="location-travel-icon">▣</span>
             <div>
               <strong>Railway Station</strong>
               <span>Approx. 11.4 km</span>
@@ -1724,7 +1828,6 @@
           </div>
 
           <div class="location-travel-fact">
-            <span class="location-travel-icon">▰</span>
             <div>
               <strong>Bus Stand</strong>
               <span>Approx. 11.5 km</span>
