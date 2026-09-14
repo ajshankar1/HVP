@@ -1370,11 +1370,12 @@ color: rgba(255, 255, 255, 0.9);
 .services-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: minmax(280px, auto); 
 }
 
 .service-item {
-  min-height: 220px;
-  padding: 30px 34px;
+  min-height: 280px;
+  padding: 40px 34px;
 
   border-top: 1px solid var(--line);
 }
@@ -11666,31 +11667,25 @@ textarea {
 
 #services .service-item {
   position: relative !important;
-
-  display: block !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
 
   width: auto !important;
   min-width: 0 !important;
 
-  height: 270px !important;
-  min-height: 270px !important;
+  height: auto !important;
+  min-height: 310px !important;
 
   margin: 0 !important;
-
-  padding: 32px 30px !important;
-
+  padding: 28px 24px 32px !important;
   box-sizing: border-box !important;
 
-  overflow: hidden !important;
+  overflow: visible !important;
 
-  border-top:
-    1px solid var(--line) !important;
-
-  border-right:
-    1px solid var(--line) !important;
-
+  border-top: 1px solid var(--line) !important;
+  border-right: 1px solid var(--line) !important;
   border-bottom: 0 !important;
-
   border-left: 0 !important;
 
   background: transparent !important;
@@ -12073,4 +12068,78 @@ textarea {
   #about::after {
     width: calc(100% - 40px);
   }
+}
+
+.site-header .header-phone,
+.location-contact-list a[href^="tel:"],
+.site-footer .footer-contact-column a[href^="tel:"] {
+  font-family: "EB Garamond", Garamond, "Times New Roman", serif !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.05em !important;
+}
+
+/* =========================================================
+   HARD OVERRIDE: PERFECT FOOTER SOCIAL ICON CENTERING
+   ========================================================= */
+.site-footer .footer-socials {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 10px !important;
+  margin-top: 18px !important;
+}
+
+.site-footer a.footer-social-link {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 40px !important;
+  height: 40px !important;
+  min-width: 40px !important;
+  min-height: 40px !important;
+  max-width: 40px !important;
+  max-height: 40px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border-radius: 50% !important;
+  border: 1px solid rgba(243, 241, 235, 0.28) !important;
+  background: transparent !important;
+  color: #f3f1eb !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+  text-decoration: none !important;
+  transition: all 0.2s ease !important;
+}
+
+.site-footer a.footer-social-link svg {
+  display: block !important;
+  position: static !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  fill: currentColor !important;
+  flex-shrink: 0 !important;
+  transform: none !important;
+}
+
+/* Individual proportional sizes centered precisely */
+.site-footer a.footer-social-facebook svg {
+  width: 17px !important;
+  height: 17px !important;
+}
+
+.site-footer a.footer-social-instagram svg {
+  width: 18px !important;
+  height: 18px !important;
+}
+
+.site-footer a.footer-social-tripadvisor svg {
+  width: 21px !important;
+  height: 21px !important;
+}
+
+.site-footer a.footer-social-link:hover {
+  background: #d3a64a !important;
+  border-color: #d3a64a !important;
+  color: #1e2023 !important;
+  transform: translateY(-2px) !important;
 }
